@@ -114,15 +114,14 @@
             };
             var options = $.extend({}, defaults, options);
             var mask_h = ($("body").height() > $(window).height()) ? $("body").height() : $(window).height(),
-                dialog_top = $(window).height() / 2 - options.height / 2 - 50,
-                dialog_left = $(window).width() / 2 - options.width / 2 - 4;
+                dialog_top = $(window).height() / 2 - options.height / 2 - 50;
             var html = '<div id="simple-window-wrapper" class="simple-window-wrapper">'
                     + '<div id="simple-window" class="simple-window" style="width:'
                     + 100
                     + '%; position: absolute; z-index: 9000; display: block; overflow: hidden; top: '
                     + dialog_top
                     + 'px; left: '
-                    + dialog_left
+                    + 0
                     + 'px;"><div class="simple-window-title" style="width: '
                     + (options.width - 20)
                     + 'px;"><span>'
