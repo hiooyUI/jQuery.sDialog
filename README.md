@@ -7,7 +7,7 @@ A dialog jquery-plugin for mobile site, easy, simple.
 <script src="your path/jquery.js"></script>
 <script src="sdialog.min.js"></script>
 ```
-```
+```javascript
            //1、open a OK/Cancel Dialog
                 $.sDialog({
                     skin: "block",
