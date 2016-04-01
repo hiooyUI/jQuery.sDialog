@@ -78,7 +78,7 @@ A dialog jQuery plugin for mobile site, easy, simple.
                     }//点击取消按钮执行的函数
                 })
 ```
-check out the example/example.html example.
+check out the example/example.html demo.
 
 or
 
