@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>sDialog 使用例子</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <link href="../sdialog.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <a href="#" id="example1">点击我弹出对话框-确认取消</a><br /><br />
+    <a href="#" id="example2">点击我弹出对话框-成功</a><br /><br />
+    <a href="#" id="example3">点击我弹出对话框-警告</a><br /><br /><br />
+    <a href="#" id="example4">点击我弹出窗体对话框</a><br /><br /><br />
+    <a href="#" id="example5">点击我下方划出对话框</a><br /><br /><br />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../sdialog.min.js"></script>
+    <script>
+        $(function () {
+            $("#example1").click(function () {
+                $.sDialog({
+                    skin: "block",
+                    content: "添加购物车成功！",
+                    okBtnText: "再逛逛",
+                    cancelBtnText: "去购物车",
+                    width: 250,
+                    okFn: function () {
+                        console.log("click 去购物车!");
+                    },
+                    cancelFn: function () {
+                        console.log("click 再逛逛!");
+                    },
+                    onDestroy: function () {
+                        console.log("destroy!");
+                    }
+                });
+            });
+
+            $("#example2").click(function () {
+                $.sDialog({
+                    skin: "green",
+                    content: "添加购物车成功！",
+                    "okBtn": false, //是否显示确定按钮
+                    "cancelBtn": false, //是否显示确定按钮
+                    width: 250,
+                    onDestroy: function () {
+                        console.log("destroy!");
+                    }
+                });
+            });
+
+            $("#example3").click(function () {
+                $.sDialog({
+                    skin: "red",
+                    content: "你输入的东西有误！",
+                    "okBtn": false, //是否显示确定按钮
+                    "cancelBtn": false, //是否显示确定按钮
+                    width: 250,
+                    onDestroy: function () {
+                        console.log("destroy!");
+                    }
+                });
+            });
+            $("#example4").click(function () {
+                $.sWindow({
+                    title: "我的标题",//弹出框标题
+                    content: '我的内容', //弹出框里面的内容，支持html标签
+                    height: 330,//内容部分高度，不是整个对话框高度
+                    callback: function () {
+                        //加载完成后执行回调函数
+                    }
+                })
+            });
+            $("#example5").click(function () {
+                $.sMenu({
+                    "menus": [
+                    {
+                        name: "退款", class: "rf", onclick: function () {
+                            console.log("点击了退款");
+                        }
+                    },
+                    {
+                        name: "退款退货", class: "rg", onclick: function () {
+                            console.log("点击了退款退货");
+                        }
+                    }
+                    ],
+                    "okBtn": false, //是否显示确定按钮
+                    "cancelBtnText": "取消", //取消按钮的文字
+                    "cancelFn": function () {
+                        console.log("点击了取消");
+                    }//点击取消按钮执行的函数
+                })
+            });
+        });
+    </script>
+</body>
+</html>
