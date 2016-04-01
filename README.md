@@ -8,7 +8,7 @@ A dialog jQuery plugin for mobile site, easy, simple.
 <script src="sdialog.min.js"></script>
 ```
 ```
-           //1、确认，取消对话框
+           //1、open a OK/Cancel Dialog
                 $.sDialog({
                     skin: "block",
                     content: "添加购物车成功！",
@@ -25,7 +25,7 @@ A dialog jQuery plugin for mobile site, easy, simple.
                         console.log("destroy!");
                     }
                 });
-           //2、成功提示对话框
+           //2、open a success Dialog
                 $.sDialog({
                     skin: "green",
                     content: "添加购物车成功！",
@@ -37,7 +37,7 @@ A dialog jQuery plugin for mobile site, easy, simple.
                     }
                 });
 
-           //3、失败提示对话框
+           //3、open a warning Dialog
                 $.sDialog({
                     skin: "red",
                     content: "你输入的东西有误！",
@@ -48,7 +48,7 @@ A dialog jQuery plugin for mobile site, easy, simple.
                         console.log("destroy!");
                     }
                 });
-           //4、自定义窗体对话框
+           //4、open a window Dialog
                 $.sWindow({
                     title: "我的标题",//弹出框标题
                     content: '我的内容', //弹出框里面的内容，支持html标签
@@ -57,7 +57,7 @@ A dialog jQuery plugin for mobile site, easy, simple.
                         //加载完成后执行回调函数
                     }
                 })
-           //5、由底部划出对话框
+           //5、slide up a Menu Dialog
                 $.sMenu({
                     "menus": [
                     {
