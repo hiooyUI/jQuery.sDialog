@@ -1,5 +1,5 @@
 # jQuery.sDialog
-A dialog jQuery plugin for mobile site, easy, simple.
+A dialog jquery-plugin for mobile site, easy, simple.
 
 ##how to use it?
 ```
