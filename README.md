@@ -1,7 +1,7 @@
 # jQuery.sDialog
 A dialog jquery-plugin for mobile site, easy, simple.
 
-##how to use it?
+## how to use it?
 ```
 <link rel="stylesheet" href="sdialog.min.css" />
 <script src="your path/jquery.js"></script>
