@@ -3,70 +3,71 @@
        sdialog弹出对话框
        使用方式
                 $.sDialog({
-                    skin: "block",
-                    content: "弹出框内容！",
-                    "okBtnText": "确认",
-                    "cancelBtnText": "取消",
-                    width: 400,
+                    skin: 'block',
+                    content: '内容',
+                    okBtnText: '确认',
+                    cancelBtnText: '取消',
+                    width: 300,
                     okFn: function () {
-                        //点击ok后回调事件 
+                        // 点击ok后回调事件
                     },
                     cancelFn: function () {
-                        //点击cancel后回调事件 
+                        // 点击cancel后回调事件
                     }
                 });
     */
     $.extend({
         sDialog: function (options) {
             var defaults = {
-                autoTime: '2000', //当没有 确定和取消按钮的时候，弹出框自动关闭的时间
-                "skin": 'block', //皮肤，默认黑色
-                "content": "出错了", //弹出框里面的内容
-                "width": 250, //弹出框宽度
-                "okBtn": true, //是否显示确定按钮
-                "cancelBtn": true, //是否显示确定按钮
-                "okBtnText": "确定", //确定按钮的文字
-                "cancelBtnText": "取消", //取消按钮的文字
-                "lock": true, //是否显示遮罩
-                "okFn": function () { }, //点击确定按钮执行的函数
-                "cancelFn": function () { },//点击取消按钮执行的函数
-                "onDestroy": function () { }//对话框消失前执行的函数
+                autoTime: '2000', // 当没有 确定和取消按钮的时候，弹出框自动关闭的时间
+                skin: 'block', // 皮肤，默认黑色
+                content: '出错了', // 弹出框里面的内容
+                width: 250, // 弹出框宽度
+                okBtn: true, // 是否显示确定按钮
+                cancelBtn: true, // 是否显示确定按钮
+                okBtnText: '确定', // 确定按钮的文字
+                cancelBtnText: '取消', // 取消按钮的文字
+                lock: true, // 是否显示遮罩
+                okFn: function () {}, // 点击确定按钮执行的函数
+                cancelFn: function () {}, // 点击取消按钮执行的函数
+                onDestroy: function () {} // 对话框消失前执行的函数
             };
             var opts = $.extend({}, defaults, options);
+
             function _init() {
-                var mask_height = ($("body").height() > $(window).height()) ? $("body").height() : $(window).height();
+                var mask_height = ($('body').height() > $(window).height()) ? $("body").height() : $(window).height();
                 var windowH = parseInt($(window).height());
-                var warpTop = (opts.top == undefined) ? windowH / 2 : opts.top;
+                var warpTop = (opts.top == undefined) ? windowH / 2 - 100 : opts.top;
                 var dTmpl = '<div class="simple-dialog-wrapper">';
-                if (opts.lock) { //是否有锁定
+                if (opts.lock) { // 是否有锁定
                     dTmpl += '<div class="s-dialog-mask" style="height:' + mask_height + 'px;"></div>';
                 }
                 dTmpl += '<div style="left:50%;top:' + warpTop + 'px;width:' + opts.width + 'px" class="s-dialog-wrapper s-dialog-skin-' + opts.skin + '">' + '<div class="s-dialog-content">' + opts.content + '</div>'
                 if (opts.okBtn || opts.cancelBtn) {
                     dTmpl += '<div class="s-dialog-btn-wapper">';
-                    if (opts.okBtn) {
-                        dTmpl += '<a href="javascript:void(0)" class="s-dialog-btn-ok">' + opts.okBtnText + '</a>';
-                    }
                     if (opts.cancelBtn) {
                         dTmpl += '<a href="javascript:void(0)" class="s-dialog-btn-cancel">' + opts.cancelBtnText + '</a>';
+                    }
+                    if (opts.okBtn) {
+                        dTmpl += '<a href="javascript:void(0)" class="s-dialog-btn-ok">' + opts.okBtnText + '</a>';
                     }
                     dTmpl += '</div>';
                 }
                 dTmpl += '</div>';
                 dTmpl += '</div>';
-                $("body").append(dTmpl);
-                var d_wrapper = $(".s-dialog-wrapper");
+                $('body').append(dTmpl);
+                var d_wrapper = $('.s-dialog-wrapper');
                 var mLeft = -parseInt(d_wrapper.width()) / 2;
                 d_wrapper.css({
-                    "margin-left": mLeft,
+                    'margin-left': mLeft,
                 });
-                //绑定事件
+                // 绑定事件
                 _bind();
             }
 
             function _bind() {
-                var okBtn = $(".s-dialog-btn-ok");
-                var cancelBtn = $(".s-dialog-btn-cancel");
+                var okBtn = $('.s-dialog-btn-ok');
+                var cancelBtn = $('.s-dialog-btn-cancel');
                 okBtn.click(_okFn);
                 cancelBtn.click(_cancelFn);
                 if (!opts.okBtn && !opts.cancelBtn) {
@@ -88,7 +89,7 @@
 
             function _close() {
                 opts.onDestroy();
-                $(".simple-dialog-wrapper").remove();
+                $('.simple-dialog-wrapper').remove();
             }
 
             _init();
