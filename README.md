@@ -82,4 +82,4 @@ check out the example/example.html demo.
 
 or
 
-[live Demo](http://www.iampua.com/pui/sdialog.html), you can use mobile phone mode to view the demo for better experience!
+[live Demo](http://www.a4z.cn/pui/sdialog.html), you can use mobile phone mode to view the demo for better experience!
